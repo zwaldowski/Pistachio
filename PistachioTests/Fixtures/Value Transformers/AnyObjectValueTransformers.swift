@@ -2,40 +2,40 @@
 
 import Foundation
 
-import Result
+import Lustre
 import ValueTransformer
 
 struct AnyObjectValueTransformers {
-    static let int = ReversibleValueTransformer<Int, AnyObject, NSError>(transformClosure: { value in
-        return Result.success(value)
+    static let int = ReversibleValueTransformer<Int, ObjectResult<AnyObject>, AnyResult<Int>>(transformClosure: { value in
+        success(value)
     }, reverseTransformClosure: { transformedValue in
         switch transformedValue {
         case let transformedValue as Int:
-            return Result.success(transformedValue)
+            return success(transformedValue)
         default:
-            return Result.failure(NSError())
+            return failure()
         }
     })
 
-    static let array = ReversibleValueTransformer<[AnyObject], AnyObject, NSError>(transformClosure: { value in
-        return Result.success(value)
+    static let array = ReversibleValueTransformer<[AnyObject], ObjectResult<AnyObject>, AnyResult<[AnyObject]>>(transformClosure: { value in
+        success(value)
     }, reverseTransformClosure: { transformedValue in
         switch transformedValue {
         case let transformedValue as [AnyObject]:
-            return Result.success(transformedValue)
+            return success(transformedValue)
         default:
-            return Result.failure(NSError())
+            return failure()
         }
     })
 
-    static let dictionary = ReversibleValueTransformer<[String: AnyObject], AnyObject, NSError>(transformClosure: { value in
-        return Result.success(value)
+    static let dictionary = ReversibleValueTransformer<[String: AnyObject], ObjectResult<AnyObject>, AnyResult<[String: AnyObject]>>(transformClosure: { value in
+        return success(value)
     }, reverseTransformClosure: { transformedValue in
         switch transformedValue {
         case let transformedValue as [String: AnyObject]:
-            return Result.success(transformedValue)
+            return success(transformedValue)
         default:
-            return Result.failure(NSError())
+            return failure()
         }
     })
 }

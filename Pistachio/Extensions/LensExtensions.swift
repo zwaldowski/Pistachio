@@ -1,17 +1,17 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
-import Result
+import Lustre
 import ValueTransformer
 import Monocle
 
 // MARK: - Lift
 
-public func lift<A, B, E>(lens: Lens<A, B>) -> Lens<Result<A, E>, Result<B, E>> {
-    let get: Result<A, E> -> Result<B, E> = { a in
+public func lift<A: ResultType, B: ResultType>(lens: Lens<A.Value, B.Value>) -> Lens<A, B> {
+    func get(a: A) -> B {
         return a.map(Monocle.get(lens))
     }
-
-    let set: (Result<A, E>, Result<B, E>) -> Result<A, E> = { a, b in
+    
+    func set(a: A, b: B) -> A {
         return a.flatMap { a in b.map { b in Monocle.set(lens, a, b) } }
     }
 
@@ -20,18 +20,52 @@ public func lift<A, B, E>(lens: Lens<A, B>) -> Lens<Result<A, E>, Result<B, E>> 
 
 // MARK: - Map
 
-public func map<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ValueType>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
+public func map<A, R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value, R.Value == A>(lens: Lens<A, V.Value>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
     return map(lift(lens), reversibleValueTransformer)
 }
 
-public func map<A, V: ReversibleValueTransformerType>(lens: Lens<Result<A, V.ErrorType>, Result<V.ValueType, V.ErrorType>>, reversibleValueTransformer: V) -> Lens<Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>> {
-    let get: Result<A, V.ErrorType> -> Result<V.TransformedValueType, V.ErrorType> = { a in
+public func map<A, R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value, R.Value == A>(lens: Lens<R, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
+    func get(a: R) -> V.TransformResult {
         return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
     }
-
-    let set: (Result<A, V.ErrorType>, Result<V.TransformedValueType, V.ErrorType>) -> Result<A, V.ErrorType> = { a, c in
+    
+    func set(a: R, c: V.TransformResult) -> R {
         return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
     }
 
+    return Lens(get: get, set: set)
+}
+
+// MARK: - Map (specialized)
+
+public func map<A, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<A, V.Value>, reversibleValueTransformer: V) -> Lens<AnyResult<A>, V.TransformResult> {
+    return map(lift(lens), reversibleValueTransformer)
+}
+
+public func map<A: AnyObject, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<A, V.Value>, reversibleValueTransformer: V) -> Lens<ObjectResult<A>, V.TransformResult> {
+    return map(lift(lens), reversibleValueTransformer)
+}
+
+public func map<A, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<AnyResult<A>, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<AnyResult<A>, V.TransformResult> {
+    func get(a: AnyResult<A>) -> V.TransformResult {
+        return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
+    }
+    
+    func set(a: AnyResult<A>, c: V.TransformResult) -> AnyResult<A> {
+        return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
+    }
+    
+    return Lens(get: get, set: set)
+}
+
+public func map<A: AnyObject, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<ObjectResult<A>, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<ObjectResult<A>, V.TransformResult> {
+    func get(a: ObjectResult<A>) -> V.TransformResult {
+        return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
+    }
+    
+    func set(a: ObjectResult<A>, c: V.TransformResult) -> ObjectResult<A> {
+        return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
+    }
+    
     return Lens(get: get, set: set)
 }
