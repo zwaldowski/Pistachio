@@ -20,11 +20,11 @@ public func lift<A: ResultType, B: ResultType>(lens: Lens<A.Value, B.Value>) -> 
 
 // MARK: - Map
 
-public func map<A, R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value, R.Value == A>(lens: Lens<A, V.Value>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
+public func map<R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<R.Value, V.Value>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
     return map(lift(lens), reversibleValueTransformer)
 }
 
-public func map<A, R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value, R.Value == A>(lens: Lens<R, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
+public func map<R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<R, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
     func get(a: R) -> V.TransformResult {
         return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
     }
