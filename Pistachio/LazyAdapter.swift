@@ -9,11 +9,11 @@ public struct LazyAdapter<A: AdapterType>: AdapterType {
         self.adapter = adapter
     }
 
-    public func transform(value: A.Value) -> A.TransformResult {
-        return adapter().transform(value)
+    public func forwardTransform(value: A.ReverseTransformResult.Value) -> A.ForwardTransformResult {
+        return adapter().forwardTransform(value)
     }
 
-    public func reverseTransform(transformedValue: A.TransformResult.Value) -> A.ReverseTransformResult {
+    public func reverseTransform(transformedValue: A.ForwardTransformResult.Value) -> A.ReverseTransformResult {
         return adapter().reverseTransform(transformedValue)
     }
 }

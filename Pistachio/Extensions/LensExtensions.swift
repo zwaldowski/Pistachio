@@ -20,16 +20,16 @@ public func lift<A: ResultType, B: ResultType>(lens: Lens<A.Value, B.Value>) -> 
 
 // MARK: - Map
 
-public func map<R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<R.Value, V.Value>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
+public func map<R: ResultType, V: ReversibleValueTransformerType>(lens: Lens<R.Value, V.ReverseTransformResult.Value>, reversibleValueTransformer: V) -> Lens<R, V.ForwardTransformResult> {
     return map(lift(lens), reversibleValueTransformer)
 }
 
-public func map<R: ResultType, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<R, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<R, V.TransformResult> {
-    func get(a: R) -> V.TransformResult {
-        return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
+public func map<R: ResultType, V: ReversibleValueTransformerType>(lens: Lens<R, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<R, V.ForwardTransformResult> {
+    func get(a: R) -> V.ForwardTransformResult {
+        return Monocle.get(lens, a).flatMap(forwardTransform(reversibleValueTransformer))
     }
     
-    func set(a: R, c: V.TransformResult) -> R {
+    func set(a: R, c: V.ForwardTransformResult) -> R {
         return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
     }
 
@@ -38,32 +38,32 @@ public func map<R: ResultType, V: ReversibleValueTransformerType where V.Value =
 
 // MARK: - Map (specialized)
 
-public func map<A, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<A, V.Value>, reversibleValueTransformer: V) -> Lens<AnyResult<A>, V.TransformResult> {
+public func map<A, V: ReversibleValueTransformerType>(lens: Lens<A, V.ReverseTransformResult.Value>, reversibleValueTransformer: V) -> Lens<AnyResult<A>, V.ForwardTransformResult> {
     return map(lift(lens), reversibleValueTransformer)
 }
 
-public func map<A: AnyObject, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<A, V.Value>, reversibleValueTransformer: V) -> Lens<ObjectResult<A>, V.TransformResult> {
+public func map<A: AnyObject, V: ReversibleValueTransformerType>(lens: Lens<A, V.ReverseTransformResult.Value>, reversibleValueTransformer: V) -> Lens<ObjectResult<A>, V.ForwardTransformResult> {
     return map(lift(lens), reversibleValueTransformer)
 }
 
-public func map<A, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<AnyResult<A>, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<AnyResult<A>, V.TransformResult> {
-    func get(a: AnyResult<A>) -> V.TransformResult {
-        return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
+public func map<A, V: ReversibleValueTransformerType>(lens: Lens<AnyResult<A>, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<AnyResult<A>, V.ForwardTransformResult> {
+    func get(a: AnyResult<A>) -> V.ForwardTransformResult {
+        return Monocle.get(lens, a).flatMap(forwardTransform(reversibleValueTransformer))
     }
     
-    func set(a: AnyResult<A>, c: V.TransformResult) -> AnyResult<A> {
+    func set(a: AnyResult<A>, c: V.ForwardTransformResult) -> AnyResult<A> {
         return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
     }
     
     return Lens(get: get, set: set)
 }
 
-public func map<A: AnyObject, V: ReversibleValueTransformerType where V.Value == V.ReverseTransformResult.Value>(lens: Lens<ObjectResult<A>, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<ObjectResult<A>, V.TransformResult> {
-    func get(a: ObjectResult<A>) -> V.TransformResult {
-        return Monocle.get(lens, a).flatMap(transform(reversibleValueTransformer))
+public func map<A: AnyObject, V: ReversibleValueTransformerType>(lens: Lens<ObjectResult<A>, V.ReverseTransformResult>, reversibleValueTransformer: V) -> Lens<ObjectResult<A>, V.ForwardTransformResult> {
+    func get(a: ObjectResult<A>) -> V.ForwardTransformResult {
+        return Monocle.get(lens, a).flatMap(forwardTransform(reversibleValueTransformer))
     }
     
-    func set(a: ObjectResult<A>, c: V.TransformResult) -> ObjectResult<A> {
+    func set(a: ObjectResult<A>, c: V.ForwardTransformResult) -> ObjectResult<A> {
         return Monocle.set(lens, a, c.flatMap(reverseTransform(reversibleValueTransformer)))
     }
     

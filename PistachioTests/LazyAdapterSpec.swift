@@ -11,7 +11,7 @@ class LazyAdapterSpec: QuickSpec {
             let adapter = NodeAdapters.anyObject
 
             it("should transform a value") {
-                let result = adapter.transform(Node(children: [ Node(children: []) ]))
+                let result = adapter.forwardTransform(Node(children: [ Node(children: []) ]))
 
                 expect(((result.value as? [String: AnyObject])?["children"] as? [AnyObject])?.count).to(equal(1))
             }

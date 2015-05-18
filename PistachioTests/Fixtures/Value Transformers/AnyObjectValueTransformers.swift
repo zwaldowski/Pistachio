@@ -6,7 +6,7 @@ import Lustre
 import ValueTransformer
 
 struct AnyObjectValueTransformers {
-    static let int = ReversibleValueTransformer<Int, ObjectResult<AnyObject>, AnyResult<Int>>(transformClosure: { value in
+    static let int = ReversibleValueTransformer<ObjectResult<AnyObject>, AnyResult<Int>>(transformClosure: { value in
         success(value)
     }, reverseTransformClosure: { transformedValue in
         switch transformedValue {
@@ -17,7 +17,7 @@ struct AnyObjectValueTransformers {
         }
     })
 
-    static let array = ReversibleValueTransformer<[AnyObject], ObjectResult<AnyObject>, AnyResult<[AnyObject]>>(transformClosure: { value in
+    static let array = ReversibleValueTransformer<ObjectResult<AnyObject>, AnyResult<[AnyObject]>>(transformClosure: { value in
         success(value)
     }, reverseTransformClosure: { transformedValue in
         switch transformedValue {
@@ -28,7 +28,7 @@ struct AnyObjectValueTransformers {
         }
     })
 
-    static let dictionary = ReversibleValueTransformer<[String: AnyObject], ObjectResult<AnyObject>, AnyResult<[String: AnyObject]>>(transformClosure: { value in
+    static let dictionary = ReversibleValueTransformer<ObjectResult<AnyObject>, AnyResult<[String: AnyObject]>>(transformClosure: { value in
         return success(value)
     }, reverseTransformClosure: { transformedValue in
         switch transformedValue {

@@ -1,2 +1,2 @@
-github "zwaldowski/ValueTransformer" "zwaldowski/lustre-result"
+github "zwaldowski/ValueTransformer" "zwaldowski/devel"
 github "robb/Monocle" ~> 0.0.1

@@ -11,7 +11,7 @@ class DictionaryAdapterSpec: QuickSpec {
             var adapter = CounterAdapters.anyObject
 
             it("should transform a value") {
-                let result = adapter.transform(Counter(count: 1))
+                let result = adapter.forwardTransform(Counter(count: 1))
 
                 expect((result.value as? [String: AnyObject])?["count"] as? Int).to(equal(1))
             }
