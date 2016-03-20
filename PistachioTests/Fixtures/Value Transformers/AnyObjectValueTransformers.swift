@@ -1,41 +1,37 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
 import Foundation
-
-import Result
 import ValueTransformer
 
 struct AnyObjectValueTransformers {
-    static let int = ReversibleValueTransformer<Int, AnyObject, NSError>(transformClosure: { value in
-        return Result.success(value)
+    enum Error: ErrorType {
+        case CouldNotBridge(type: Any.Type)
+    }
+
+    static let int = ReversibleValueTransformer<Int, AnyObject>(transformClosure: { value in
+        return value
     }, reverseTransformClosure: { transformedValue in
-        switch transformedValue {
-        case let transformedValue as Int:
-            return Result.success(transformedValue)
-        default:
-            return Result.failure(NSError())
+        guard let value = transformedValue as? Int else {
+            throw Error.CouldNotBridge(type: transformedValue.dynamicType)
         }
+        return value
     })
 
-    static let array = ReversibleValueTransformer<[AnyObject], AnyObject, NSError>(transformClosure: { value in
-        return Result.success(value)
+    static let array = ReversibleValueTransformer<[AnyObject], AnyObject>(transformClosure: { value in
+        return value
     }, reverseTransformClosure: { transformedValue in
-        switch transformedValue {
-        case let transformedValue as [AnyObject]:
-            return Result.success(transformedValue)
-        default:
-            return Result.failure(NSError())
+        guard let value = transformedValue as? [AnyObject] else {
+            throw Error.CouldNotBridge(type: transformedValue.dynamicType)
         }
+        return value
     })
 
-    static let dictionary = ReversibleValueTransformer<[String: AnyObject], AnyObject, NSError>(transformClosure: { value in
-        return Result.success(value)
+    static let dictionary = ReversibleValueTransformer<[String: AnyObject], AnyObject>(transformClosure: { value in
+        return value
     }, reverseTransformClosure: { transformedValue in
-        switch transformedValue {
-        case let transformedValue as [String: AnyObject]:
-            return Result.success(transformedValue)
-        default:
-            return Result.failure(NSError())
+        guard let value = transformedValue as? [String: AnyObject] else {
+            throw Error.CouldNotBridge(type: transformedValue.dynamicType)
         }
+        return value
     })
 }

@@ -10,16 +10,16 @@ class LazyAdapterSpec: QuickSpec {
         describe("A LazyAdapter") {
             let adapter = NodeAdapters.anyObject
 
-            it("should transform a value") {
-                let result = adapter.transform(Node(children: [ Node(children: []) ]))
+            let value = Node(children: [ Node(children: []) ])
+            let dictionary = [ "count": 1 ] as [String: AnyObject]
 
-                expect(((result.value as? [String: AnyObject])?["children"] as? [AnyObject])?.count).to(equal(1))
+
+            it("should transform a value") {
+                expect { try ((adapter.transform(value) as? [String: AnyObject])?["children"] as? [AnyObject])?.count } == 1
             }
 
             it("should reverse transform a value") {
-                let result = adapter.reverseTransform([ "children": [ [ "children": [] ] ] ])
-
-                expect(result.value).to(equal(Node(children: [ Node(children: []) ])))
+                expect { try adapter.reverseTransform([ "children": [ [ "children": [] ] ] ]) } == value
             }
         }
     }

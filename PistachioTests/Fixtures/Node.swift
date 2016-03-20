@@ -1,6 +1,5 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
-import ValueTransformer
 import Monocle
 import Pistachio
 
@@ -21,7 +20,7 @@ struct NodeLenses {
 struct NodeAdapters {
     static let anyObject = fix { adapter in
         return DictionaryAdapter(specification: [
-            "children": map(NodeLenses.children, lift(adapter) >>> AnyObjectValueTransformers.array)
+            "children": NodeLenses.children.map(adapter.lift().compose(with: AnyObjectValueTransformers.array))
         ], dictionaryTransformer: AnyObjectValueTransformers.dictionary, value: Node(children: []))
     }
 }

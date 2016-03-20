@@ -1,7 +1,5 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
-import Result
-
 public struct LazyAdapter<A: AdapterType>: AdapterType {
     private let adapter: () -> A
 
@@ -9,12 +7,12 @@ public struct LazyAdapter<A: AdapterType>: AdapterType {
         self.adapter = adapter
     }
 
-    public func transform(value: A.ValueType) -> Result<A.TransformedValueType, A.ErrorType> {
-        return adapter().transform(value)
+    public func transform(value: A.OriginalValue) throws -> A.TransformedValue {
+        return try adapter().transform(value)
     }
 
-    public func reverseTransform(transformedValue: A.TransformedValueType) -> Result<A.ValueType, A.ErrorType> {
-        return adapter().reverseTransform(transformedValue)
+    public func reverseTransform(transformedValue: A.TransformedValue) throws -> A.OriginalValue {
+        return try adapter().reverseTransform(transformedValue)
     }
 }
 

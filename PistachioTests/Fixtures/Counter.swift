@@ -1,6 +1,5 @@
 //  Copyright (c) 2015 Felix Jendrusch. All rights reserved.
 
-import ValueTransformer
 import Monocle
 import Pistachio
 
@@ -20,6 +19,6 @@ struct CounterLenses {
 
 struct CounterAdapters {
     static let anyObject = DictionaryAdapter(specification: [
-        "count": map(CounterLenses.count, AnyObjectValueTransformers.int)
+        "count": CounterLenses.count.map(AnyObjectValueTransformers.int)
     ], dictionaryTransformer: AnyObjectValueTransformers.dictionary, value: Counter(count: 0))
 }

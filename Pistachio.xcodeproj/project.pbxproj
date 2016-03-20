@@ -15,22 +15,16 @@
 		DC374CDB1AE5B71E00A37122 /* LensExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC374CD91AE5B71E00A37122 /* LensExtensionsSpec.swift */; };
 		DC492A121A83BB59007B52D6 /* Pistachio.h in Headers */ = {isa = PBXBuildFile; fileRef = DC492A111A83BB59007B52D6 /* Pistachio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC492A0C1A83BB59007B52D6 /* Pistachio.framework */; };
-		DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; };
-		DC516CCF1ADAEE00006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; };
-		DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CCD1ADAEDAC006112F2 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CD91ADAEE58006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; };
 		DC516CDA1ADAEE74006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; };
 		DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CD31ADAEE27006112F2 /* Monocle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC20783A1A868B00005A9CF2 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC2078391A868B00005A9CF2 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CE51ADAEF14006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; };
 		DC516CE61ADAEF17006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; };
 		DC516CE71ADAEF2B006112F2 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A71ACEAD38007E4C12 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CE81ADAEF2B006112F2 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767A61ACEAD38007E4C12 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CEC1ADAEF2B006112F2 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CED1ADAEF2B006112F2 /* ValueTransformer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA767BB1ACEAF35007E4C12 /* ValueTransformer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DC516CEF1ADAEF39006112F2 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE41ADAEED7006112F2 /* Result.framework */; };
 		DC516CF01ADAEF3C006112F2 /* Monocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC516CE21ADAEED7006112F2 /* Monocle.framework */; };
 		DC7CEA191AE28B2F0049F077 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */; };
 		DC7CEA1A1AE28B2F0049F077 /* LensExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CEA161AE28B2F0049F077 /* LensExtensions.swift */; };
@@ -59,9 +53,6 @@
 		DCCF43E91AE461E1009E0012 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43E71AE461E1009E0012 /* Counter.swift */; };
 		DCCF43EB1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
 		DCCF43EC1AE46775009E0012 /* DictionaryAdapterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF43EA1AE46775009E0012 /* DictionaryAdapterSpec.swift */; };
-		DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; };
-		DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE11AF1A42A0075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DCE2DDE51AF1A4420075FF3B /* Box.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE2DDE21AF1A4340075FF3B /* Box.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +81,6 @@
 			files = (
 				DC516CDE1ADAEEAE006112F2 /* Quick.framework in CopyFiles */,
 				DC516CDF1ADAEEAE006112F2 /* Nimble.framework in CopyFiles */,
-				DCE2DDE41AF1A43C0075FF3B /* Box.framework in CopyFiles */,
-				DC516CD01ADAEE08006112F2 /* Result.framework in CopyFiles */,
 				DCA767BE1ACEAF5A007E4C12 /* ValueTransformer.framework in CopyFiles */,
 				DC516CDD1ADAEEA3006112F2 /* Monocle.framework in CopyFiles */,
 			);
@@ -105,8 +94,6 @@
 			files = (
 				DC516CE71ADAEF2B006112F2 /* Quick.framework in CopyFiles */,
 				DC516CE81ADAEF2B006112F2 /* Nimble.framework in CopyFiles */,
-				DCE2DDE51AF1A4420075FF3B /* Box.framework in CopyFiles */,
-				DC516CEC1ADAEF2B006112F2 /* Result.framework in CopyFiles */,
 				DC516CED1ADAEF2B006112F2 /* ValueTransformer.framework in CopyFiles */,
 				DC516CEE1ADAEF2B006112F2 /* Monocle.framework in CopyFiles */,
 			);
@@ -152,9 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC516CCE1ADAEDAC006112F2 /* Result.framework in Frameworks */,
 				DCA767BA1ACEAF17007E4C12 /* ValueTransformer.framework in Frameworks */,
-				DCE2DDE31AF1A4340075FF3B /* Box.framework in Frameworks */,
 				DC516CD91ADAEE58006112F2 /* Monocle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +150,6 @@
 			files = (
 				DC20783C1A868B00005A9CF2 /* Quick.framework in Frameworks */,
 				DC20783B1A868B00005A9CF2 /* Nimble.framework in Frameworks */,
-				DC516CCF1ADAEE00006112F2 /* Result.framework in Frameworks */,
 				DCA767BD1ACEAF52007E4C12 /* ValueTransformer.framework in Frameworks */,
 				DC516CDA1ADAEE74006112F2 /* Monocle.framework in Frameworks */,
 				DC492A181A83BB59007B52D6 /* Pistachio.framework in Frameworks */,
@@ -176,7 +160,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC516CE51ADAEF14006112F2 /* Result.framework in Frameworks */,
 				DCA767BC1ACEAF35007E4C12 /* ValueTransformer.framework in Frameworks */,
 				DC516CE61ADAEF17006112F2 /* Monocle.framework in Frameworks */,
 			);
@@ -188,7 +171,6 @@
 			files = (
 				DCA767A91ACEAD38007E4C12 /* Quick.framework in Frameworks */,
 				DCA767A81ACEAD38007E4C12 /* Nimble.framework in Frameworks */,
-				DC516CEF1ADAEF39006112F2 /* Result.framework in Frameworks */,
 				DCA767BF1ACEAF6A007E4C12 /* ValueTransformer.framework in Frameworks */,
 				DC516CF01ADAEF3C006112F2 /* Monocle.framework in Frameworks */,
 				DCA767961ACEAC7D007E4C12 /* Pistachio.framework in Frameworks */,
@@ -441,7 +423,8 @@
 		DC492A031A83BB59007B52D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Felix Jendrusch";
 				TargetAttributes = {
 					DC492A0B1A83BB59007B52D6 = {
@@ -597,6 +580,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -680,6 +664,7 @@
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -701,6 +686,7 @@
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SKIP_INSTALL = YES;
 			};
@@ -720,6 +706,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 			};
 			name = Debug;
@@ -734,6 +721,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 			};
 			name = Release;
@@ -755,6 +743,7 @@
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -776,6 +765,7 @@
 				INFOPLIST_FILE = Pistachio/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -797,6 +787,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 				SDKROOT = macosx;
 			};
@@ -815,6 +806,7 @@
 				);
 				INFOPLIST_FILE = PistachioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "is.felixjendrusch.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(inherited)Tests";
 				SDKROOT = macosx;
 			};
