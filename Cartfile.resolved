@@ -1,4 +1,4 @@
-git "file:///Users/zw/Documents/Projects/Monocle" "21211a3cdabc233c325b79323092e73a43b79d23"
-github "Quick/Nimble" "v3.2.0"
-github "Quick/Quick" "v0.9.1"
-git "file:///Users/zw/Documents/Projects/ValueTransformer" "599898ffe2c56c81abd500136794756629349465"
+git "file:///Users/zw/Documents/Projects/Monocle" "ecd43ab78f1ed678f22c1eea85e265f519fa6d02"
+github "Quick/Nimble" "v4.0.0"
+github "Quick/Quick" "v0.9.2"
+git "file:///Users/zw/Documents/Projects/ValueTransformer" "45e8a3f7840355fd58a83629c01f6a55acd304a0"
